@@ -1,0 +1,3 @@
+[submodule "modules/home/editors/nvim/dc-tec-nixvim"]
+	path = modules/home/editors/nvim/dc-tec-nixvim
+	url = https://github.com/dc-tec/nixvim.git

@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
-    ## Multimedia
+    # Multimedia
     audacity
     gimp
     obs-studio
@@ -10,18 +10,20 @@
     video-trimmer
     vlc
 
-    ## Office
-    libreoffice
+    # Office
     gnome-calculator
+    wechat
+    google-chrome
 
-    ## Utility
-    dconf-editor
-    gnome-disk-utility
-    mission-center # GUI resources monitor
-    zenity
+    wpsoffice-cn
+    
+    (vscode.override {
+      commandLineArgs = "--enable-features=UseOzonePlatform --ozone-platform=wayland";
+    })
+    # (qq.override {
+    #   commandLineArgs = "--enable-features=UseOzonePlatform --ozone-platform=wayland";
+    # })
 
-    ## Level editor
-    ldtk
-    tiled
+    nwg-displays
   ];
 }

@@ -119,6 +119,35 @@
       setopt hist_expire_dups_first
       setopt hist_verify
 
+
+      yy() {
+        local _yy_tmp=
+        local _yy_cwd=
+        local _yy_run_as_root=false
+        # 检查第一个参数是否为 "sudo"
+        if [ "$1" = "sudo" ]; then
+            _yy_run_as_root=true
+            shift  # 移除第一个参数
+        fi
+        # 创建临时文件
+        _yy_tmp="$(command mktemp -t "yazi-cwd.XXXXXX")"
+        # 根据是否需要 sudo 启动 Yazi
+        if $_yy_run_as_root; then
+            sudo yazi "$@" --cwd-file="$_yy_tmp"
+        else
+            yazi "$@" --cwd-file="$_yy_tmp"
+        fi
+        # 读取目录
+        _yy_cwd="$(cat -- "$_yy_tmp")"
+        # 删除临时文件
+        command rm -f -- "$_yy_tmp"
+        # 切换目录
+        if [ -n "$_yy_cwd" ] && [ "$_yy_cwd" != "$PWD" ]; then
+            cd -- "$_yy_cwd"
+        fi
+      }
+
+
       source ~/.p10k.zsh
 
       # Use fd (https://github.com/sharkdp/fd) for listing path candidates.

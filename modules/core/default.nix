@@ -1,20 +1,13 @@
 { ... }:
 {
   imports = [
-    ./bootloader.nix
-    ./hardware.nix
-    ./xserver.nix
-    ./network.nix
-    ./nh.nix
-    ./pipewire.nix
+    ./system
+    ./dev.nix
+    ./fcitx5.nix
     ./program.nix
-    ./security.nix
-    ./services.nix
     ./steam.nix
-    ./system.nix
+    ./stylix.nix
     ./flatpak.nix
-    ./user.nix
-    ./wayland.nix
     ./virtualization.nix
   ];
 }

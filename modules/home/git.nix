@@ -3,8 +3,8 @@
   programs.git = {
     enable = true;
 
-    userName = "Frost-Phoenix";
-    userEmail = "67cyril6767@gmail.com";
+    userName = "RumiTsukiSue";
+    userEmail = "3304086609@qq.com";
 
     extraConfig = {
       init.defaultBranch = "main";
@@ -12,13 +12,13 @@
       diff.colorMoved = "default";
       pull.ff = "only";
       color.ui = true;
-      url = {
-        "git@github.com:".insteadOf = [
-          "gh:"
-          "https://github.com/"
-        ];
-        "git@github.com:frost-phoenix/".insteadOf = "fp:";
-      };
+#      url = {
+#        "git@github.com:".insteadOf = [
+#          "gh:"
+#          "https://github.com/"
+#        ];
+#        "git@github.com:frost-phoenix/".insteadOf = "fp:";
+#      };
       core.excludesFile = "/home/${username}/.config/git/.gitignore";
     };
 
@@ -33,7 +33,11 @@
     };
   };
 
-  home.packages = [ pkgs.gh ]; # pkgs.git-lfs
+
+  home.packages = with pkgs; [
+    gh
+    git-credential-manager
+  ]; # git-lfs gcm
 
   xdg.configFile."git/.gitignore".text = ''
     .vscode

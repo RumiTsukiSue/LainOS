@@ -1,0 +1,19 @@
+{
+    "version": "1.0.0",
+    "appearance": "dark",
+    "icon": "",
+    "name": "lain-dark-pink",
+    "description": "lain-dark-pink base16Scheme",
+    "palette": {
+        "background": "#121215",
+        "foreground": "#EEEDE4",
+        "blue": "#FF8888",
+        "green": "#7BC98D",
+        "magenta": "#FF79C6",
+        "orange": "#FFB86C",
+        "purple": "#BD93F9",
+        "red": "#FF5555",
+        "yellow": "#FFF08C",
+        "cyan": "#8BE9FD"
+    }
+}

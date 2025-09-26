@@ -31,6 +31,7 @@
     yt-dlp-light
 
     ## TUI
+    yazi                              # filemanager
     epy                               # ebook reader
     gtt                               # google translate TUI
     programmer-calculator
@@ -39,8 +40,8 @@
     ttyper                            # cli typing test
 
     ## Monitoring / fetch
-    htop
     neofetch
+    fastfetch
     nitch                             # systhem fetch util
     onefetch                          # fetch utility for git repo
     wavemon                           # monitoring for wireless network devices
@@ -79,7 +80,6 @@
     poweralertd
     unzip
     wget
-    wl-clipboard                      # clipboard utils for wayland (wl-copy, wl-paste)
     xdg-utils
 
     winetricks

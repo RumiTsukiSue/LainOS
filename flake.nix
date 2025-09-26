@@ -32,20 +32,33 @@
       };
     };
 
+    stylix = {
+      url = "github:danth/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nur.url = "github:nix-community/NUR";
     nix-gaming.url = "github:fufexan/nix-gaming";
 
     nix-flatpak.url = "github:gmodena/nix-flatpak";
 
-    zen-browser.url = "github:0xc000022070/zen-browser-flake";
-
     vicinae.url = "github:vicinaehq/vicinae";
+
+    devenv.url = "github:cachix/devenv";
+    devenv.inputs.nixpkgs.follows = "nixpkgs";
+
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # cherrystudio.url = "github:CherryHQ/cherry-studio";
   };
 
   outputs =
     { nixpkgs, self, ... }@inputs:
     let
-      username = "frostphoenix";
+      username = "baboonking";
       system = "x86_64-linux";
       pkgs = import nixpkgs {
         inherit system;
@@ -54,6 +67,7 @@
       lib = nixpkgs.lib;
     in
     {
+
       nixosConfigurations = {
         desktop = nixpkgs.lib.nixosSystem {
           inherit system;
