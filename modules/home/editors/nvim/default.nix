@@ -27,7 +27,9 @@
       encoding = "utf-8";
       fileencoding = "utf-8";
       mouse = "a";
-      cmdheight = 0;
+      showmode = true;                      # 在底部显示当前模式（插入、命令等）。
+      showcmd = true;                       # 命令模式下，在底部显示当前键入的指令。
+      cmdheight = 0;                        # 底部空行
       termguicolors = true;                 # 真彩色支持
       autoindent = true;                    # 回车键缩进跟上一行保持一致
       number = true;                        # 显示行数

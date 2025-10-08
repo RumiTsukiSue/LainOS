@@ -19,9 +19,9 @@
 
   #  settings = {
   #    confirm_os_window_close = 0;
-  #    background_opacity = "0.94";
+  #    background_opacity = "0.99";
   #    scrollback_lines = 10000;
-  #    enable_audio_bell = false;
+  #    enable_audio_bell = true;
   #    mouse_hide_wait = 60;
   #    window_padding_width = if (host == "laptop") then 4 else 6;
 

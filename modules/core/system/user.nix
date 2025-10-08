@@ -38,7 +38,6 @@
     settings = {
       allowed-users = [ "${username}" ];
       substituters = [
-        "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"  # 清华大学镜像
         "https://cache.nixos.org/"  # 官方缓存，作为备用
       ];
     };

@@ -2,7 +2,6 @@
 {
   home.sessionVariables = {
     NIXOS_OZONE_WL = 1;
-    WAYLAND_DISPLAY = 1;
 
     __GL_GSYNC_ALLOWED = 0;
     __GL_VRR_ALLOWED = 0;
@@ -37,7 +36,8 @@
     QT_IM_MODULE = "fcitx";
     XMODIFIERS = "@im=fcitx";
     SDL_IM_MODULE = "fcitx";  # 对于SDL应用（如游戏）
-    GLFW_IM_MODULE = "ibus";  # 如果有冲突，可改为fcitx，但ibus有时更兼容
+    GLFW_IM_MODULE = "fcitx";  # 如果有冲突，可改为fcitx，但ibus有时更兼容
+    INPUT_METHOD = "fcitx5";
     ELECTRON_OZONE_PLATFORM_HINT = "auto";
   };
 }

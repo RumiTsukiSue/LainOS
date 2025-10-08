@@ -33,7 +33,7 @@ in
         "${terminal} --gtk-single-instance=true --quit-after-last-window-closed=false --initial-window=false"
         "[workspace 1 silent] ${browser}"
         "[workspace 2 silent] ${terminal}"
-        "[workspace 5 silent] cherry-studio --enable-features=UseOzonePlatform --ozone-platform-hint=auto --no-sandbox %U"
+        "[workspace 5 silent] cherry-studio --no-sandbox %U"
       ];
 
       input = {
@@ -53,8 +53,8 @@ in
       general = {
         "$mainMod" = "SUPER";
         layout = "dwindle";
-        gaps_in = 6;
-        gaps_out = 12;
+        gaps_in = 4;
+        gaps_out = 4;
         border_size = 2;
         #"col.active_border" = "rgb(98971A) rgb(CC241D) 45deg";
         #"col.inactive_border" = "0x00000000";
@@ -63,7 +63,7 @@ in
       };
 
       misc = {
-        disable_autoreload = true;
+        disable_autoreload = false;
         disable_hyprland_logo = true;
         always_follow_on_dnd = true;
         layers_hog_keyboard_focus = true;
@@ -90,18 +90,18 @@ in
 
       decoration = {
         rounding = 0;
-        # active_opacity = 0.90;
-        # inactive_opacity = 0.90;
+        # active_opacity = 0.95;
+        # inactive_opacity = 0.95;
         # fullscreen_opacity = 1.0;
 
         blur = {
           enabled = true;
-          size = 3;
+          size = 8;
           passes = 2;
-          brightness = 1;
-          contrast = 1.4;
+          brightness = 1.2;
+          contrast = 1;
           ignore_opacity = true;
-          noise = 0;
+          noise = 0.01;
           new_optimizations = true;
           xray = true;
         };
@@ -111,7 +111,7 @@ in
 
           ignore_window = true;
           offset = "0 2";
-          range = 20;
+          range = 4;
           render_power = 3;
           # color = "rgba(00000055)";
         };
@@ -171,7 +171,7 @@ in
         "$mainMod, P, pseudo,"
         "$mainMod, X, togglesplit,"
         "$mainMod, T, exec, toggle-oppacity"
-        "$mainMod, E, exec, nemo"
+        "$mainMod, E, exec, nautilus"
         "ALT, E, exec, hyprctl dispatch exec '[float; size 1111 700] nemo'"
         "$mainMod SHIFT, B, exec, toggle-waybar"
         "$mainMod, C ,exec, hyprpicker -a"
@@ -183,8 +183,10 @@ in
 
         # screenshot
         #"$mainMod, S, exec, screenshot --copy"
-        "$mainMod, S, exec, screenshot --save"
-        "$mainMod SHIFT, S, exec, screenshot --swappy"
+        #"$mainMod, S, exec, screenshot --save"
+        #"$mainMod SHIFT, S, exec, screenshot --swappy"
+        "$mainMod, S, exec, grimblast --notify --cursor --freeze copy area"
+        "$mainMod SHIFT, S, exec, grimblast --notify --cursor --freeze copy output"
 
         # switch focus
         "$mainMod, left,  movefocus, l"
@@ -296,89 +298,6 @@ in
         "$mainMod, mouse:273, resizewindow"
       ];
 
-#      # windowrule
-#      windowrule = [
-#        "float,class:^(Viewnior)$"
-#        "float,class:^(imv)$"
-#        "float,class:^(mpv)$"
-#        "tile,class:^(Aseprite)$"
-#        "float,class:^(Audacious)$"
-#        "pin,class:^(rofi)$"
-#        "pin,class:^(waypaper)$"
-#        # "idleinhibit focus,mpv"
-#        # "float,udiskie"
-#        "float,title:^(Transmission)$"
-#        "float,title:^(Volume Control)$"
-#        "float,title:^(Firefox — Sharing Indicator)$"
-#        "move 0 0,title:^(Firefox — Sharing Indicator)$"
-#        "size 700 450,title:^(Volume Control)$"
-#        "move 40 55%,title:^(Volume Control)$"
-#
-#        "float, title:^(Picture-in-Picture)$"
-#        "opacity 1.0 override 1.0 override, title:^(Picture-in-Picture)$"
-#        "pin, title:^(Picture-in-Picture)$"
-#        "opacity 1.0 override 1.0 override, title:^(.*imv.*)$"
-#        "opacity 1.0 override 1.0 override, title:^(.*mpv.*)$"
-#        "opacity 1.0 override 1.0 override, class:(Aseprite)"
-#        "opacity 1.0 override 1.0 override, class:(Unity)"
-#        "opacity 1.0 override 1.0 override, class:(zen)"
-#        "opacity 1.0 override 1.0 override, class:(evince)"
-#        "workspace 1, class:^(${browser})$"
-#        "workspace 3, class:^(evince)$"
-#        "workspace 4, class:^(Gimp-2.10)$"
-#        "workspace 4, class:^(Aseprite)$"
-#        "workspace 5, class:^(Audacious)$"
-#        "workspace 5, class:^(Spotify)$"
-#        "workspace 8, class:^(com.obsproject.Studio)$"
-#        "workspace 10, class:^(discord)$"
-#        "workspace 10, class:^(WebCord)$"
-#        "idleinhibit focus, class:^(mpv)$"
-#        "idleinhibit fullscreen, class:^(firefox)$"
-#        "float,class:^(org.gnome.Calculator)$"
-#        "float,class:^(waypaper)$"
-#        "float,class:^(zenity)$"
-#        "size 850 500,class:^(zenity)$"
-#        "size 725 330,class:^(SoundWireServer)$"
-#        "float,class:^(org.gnome.FileRoller)$"
-#        "float,class:^(org.pulseaudio.pavucontrol)$"
-#        "float,class:^(SoundWireServer)$"
-#        "float,class:^(.sameboy-wrapped)$"
-#        "float,class:^(file_progress)$"
-#        "float,class:^(confirm)$"
-#        "float,class:^(dialog)$"
-#        "float,class:^(download)$"
-#        "float,class:^(notification)$"
-#        "float,class:^(error)$"
-#        "float,class:^(confirmreset)$"
-#        "float,title:^(Open File)$"
-#        "float,title:^(File Upload)$"
-#        "float,title:^(branchdialog)$"
-#        "float,title:^(Confirm to replace files)$"
-#        "float,title:^(File Operation Progress)$"
-#
-#        "opacity 0.0 override,class:^(xwaylandvideobridge)$"
-#        "noanim,class:^(xwaylandvideobridge)$"
-#        "noinitialfocus,class:^(xwaylandvideobridge)$"
-#        "maxsize 1 1,class:^(xwaylandvideobridge)$"
-#        "noblur,class:^(xwaylandvideobridge)$"
-#
-#        # No gaps when only
-#        "bordersize 0, floating:0, onworkspace:w[t1]"
-#        "rounding 0, floating:0, onworkspace:w[t1]"
-#        "bordersize 0, floating:0, onworkspace:w[tg1]"
-#        "rounding 0, floating:0, onworkspace:w[tg1]"
-#        "bordersize 0, floating:0, onworkspace:f[1]"
-#        "rounding 0, floating:0, onworkspace:f[1]"
-#
-#        # "maxsize 1111 700, floating: 1"
-#        # "center, floating: 1"
-#
-#        # Remove context menu transparency in chromium based apps
-#        "opaque,class:^()$,title:^()$"
-#        "noshadow,class:^()$,title:^()$"
-#        "noblur,class:^()$,title:^()$"
-#      ];
-
       layerrule = [
         "dimaround, vicinae"
         "dimaround, rofi"
@@ -390,8 +309,6 @@ in
         "w[tg1], gapsout:0, gapsin:0"
         "f[1], gapsout:0, gapsin:0"
       ];
-
-#      monitor = [ "=,preferred,auto,auto" ];
 
       xwayland = {
         force_zero_scaling = true;

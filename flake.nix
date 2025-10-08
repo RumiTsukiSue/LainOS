@@ -51,8 +51,6 @@
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    # cherrystudio.url = "github:CherryHQ/cherry-studio";
   };
 
   outputs =

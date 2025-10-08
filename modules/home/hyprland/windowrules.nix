@@ -65,6 +65,7 @@
         "opacity 0.9 0.8, tag:file-manager*"
         "opacity 0.8 0.7, tag:terminal*"
         "opacity 0.8 0.7, tag:settings*"
+        "opacity 1.0 0.9, class:^(org.gnome.Nautilus)$"
         "opacity 0.8 0.7, class:^(gedit|org.gnome.TextEditor|mousepad)$"
         "opacity 0.9 0.8, class:^(seahorse)$ # gnome-keyring gui"
         "opacity 0.95 0.75, title:^(Picture-in-Picture)$"
